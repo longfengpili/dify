@@ -120,6 +120,7 @@ services:
     volumes:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
+      - ../api/:/app/api/
     # uncomment to expose dify-api port to host
     # ports:
     #   - "5001:5001"
@@ -195,6 +196,7 @@ services:
     volumes:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
+      - ../api/:/app/api/
 
   # Frontend web application.
   web:
@@ -306,4 +308,4 @@ services:
       - api
       - web
     ports:
-      - "80:80"
+      - "38080:80"
