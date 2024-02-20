@@ -132,6 +132,8 @@ services:
     # uncomment to expose dify-api port to host
     # ports:
     #   - "5001:5001"
+    networks:
+      - macvlan1
 
   # worker service
   # The Celery worker for processing the queue.
@@ -205,6 +207,8 @@ services:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
       - ./api/:/app/api/
+    networks:
+      - macvlan1
 
   # Frontend web application.
   web:
@@ -225,6 +229,8 @@ services:
     # uncomment to expose dify-web port to host
     # ports:
     #   - "3000:3000"
+    networks:
+      - macvlan1
 
   # The postgres database.
   db:
@@ -248,6 +254,8 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+    networks:
+      - macvlan1
 
   # The redis cache.
   redis:
@@ -263,6 +271,8 @@ services:
     # uncomment to expose redis port to host
     # ports:
     #   - "6379:6379"
+    networks:
+      - macvlan1
 
   # The Weaviate vector store.
   weaviate:
@@ -317,3 +327,9 @@ services:
       - web
     ports:
       - "38080:80"
+    networks:
+      - macvlan1
+
+networks:
+  macvlan1:
+    external: true
