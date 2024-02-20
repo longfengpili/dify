@@ -7,4 +7,4 @@ docker rmi dify-worker
 docker rmi dify-api
 docker rmi dify-web
 
-docker-compose up
+docker-compose -f docker-compose-build.yml up
