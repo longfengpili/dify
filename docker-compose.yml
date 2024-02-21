@@ -134,6 +134,8 @@ services:
     #   - "5001:5001"
     networks:
       - myopenwrt
+    dns:
+      - 192.168.31.2
 
   # worker service
   # The Celery worker for processing the queue.
@@ -209,6 +211,8 @@ services:
       - ./api/:/app/api/
     networks:
       - myopenwrt
+    dns:
+      - 192.168.31.2
 
   # Frontend web application.
   web:
@@ -231,6 +235,8 @@ services:
     #   - "3000:3000"
     networks:
       - myopenwrt
+    dns:
+      - 192.168.31.2
 
   # The postgres database.
   db:
@@ -256,6 +262,8 @@ services:
       retries: 30
     networks:
       - myopenwrt
+    dns:
+      - 192.168.31.2
 
   # The redis cache.
   redis:
@@ -273,6 +281,8 @@ services:
     #   - "6379:6379"
     networks:
       - myopenwrt
+    dns:
+      - 192.168.31.2
 
   # The Weaviate vector store.
   weaviate:
@@ -329,7 +339,9 @@ services:
       - "38080:80"
     networks:
       - myopenwrt
+    dns:
+      - 192.168.31.2
 
 networks:
-  myopenwrt:
+  myopenwrt
     external: true
