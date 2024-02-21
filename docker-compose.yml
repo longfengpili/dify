@@ -133,7 +133,7 @@ services:
     # ports:
     #   - "5001:5001"
     networks:
-      - macvlan1
+      - myopenwrt
 
   # worker service
   # The Celery worker for processing the queue.
@@ -208,7 +208,7 @@ services:
       - ./volumes/app/storage:/app/api/storage
       - ./api/:/app/api/
     networks:
-      - macvlan1
+      - myopenwrt
 
   # Frontend web application.
   web:
@@ -230,7 +230,7 @@ services:
     # ports:
     #   - "3000:3000"
     networks:
-      - macvlan1
+      - myopenwrt
 
   # The postgres database.
   db:
@@ -255,7 +255,7 @@ services:
       timeout: 3s
       retries: 30
     networks:
-      - macvlan1
+      - myopenwrt
 
   # The redis cache.
   redis:
@@ -272,7 +272,7 @@ services:
     # ports:
     #   - "6379:6379"
     networks:
-      - macvlan1
+      - myopenwrt
 
   # The Weaviate vector store.
   weaviate:
@@ -328,8 +328,8 @@ services:
     ports:
       - "38080:80"
     networks:
-      - macvlan1
+      - myopenwrt
 
 networks:
-  macvlan1:
+  myopenwrt:
     external: true
