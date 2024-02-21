@@ -343,5 +343,5 @@ services:
       - 192.168.31.2
 
 networks:
-  myopenwrt
+  myopenwrt:
     external: true
