@@ -133,7 +133,8 @@ services:
     # ports:
     #   - "5001:5001"
     networks:
-      - myopenwrt
+      myopenwrt:
+        ipv4_address: 192.168.31.241
     dns:
       - 192.168.31.2
 
@@ -210,7 +211,8 @@ services:
       - ./volumes/app/storage:/app/api/storage
       - ./api/:/app/api/
     networks:
-      - myopenwrt
+      myopenwrt:
+        ipv4_address: 192.168.31.242
     dns:
       - 192.168.31.2
 
@@ -234,7 +236,8 @@ services:
     # ports:
     #   - "3000:3000"
     networks:
-      - myopenwrt
+      myopenwrt:
+        ipv4_address: 192.168.31.243
     dns:
       - 192.168.31.2
 
@@ -261,7 +264,8 @@ services:
       timeout: 3s
       retries: 30
     networks:
-      - myopenwrt
+      myopenwrt:
+        ipv4_address: 192.168.31.244
     dns:
       - 192.168.31.2
 
@@ -280,7 +284,8 @@ services:
     # ports:
     #   - "6379:6379"
     networks:
-      - myopenwrt
+      myopenwrt:
+        ipv4_address: 192.168.31.245
     dns:
       - 192.168.31.2
 
@@ -307,6 +312,11 @@ services:
     # uncomment to expose weaviate port to host
     # ports:
     #  - "8080:8080"
+    networks:
+      myopenwrt:
+        ipv4_address: 192.168.31.246
+    dns:
+      - 192.168.31.2
 
   # Qdrant vector store.
   # uncomment to use qdrant as vector store.
@@ -338,7 +348,8 @@ services:
     ports:
       - "38080:80"
     networks:
-      - myopenwrt
+      myopenwrt:
+        ipv4_address: 192.168.31.247
     dns:
       - 192.168.31.2
 
